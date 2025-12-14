@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Google Fonts 繁體中文/日文網頁字體預覽器 - 線上挑選指南</title>
+    <meta name="description" content="免費線上網頁字體預覽工具，專為網頁設計師打造。即時測試 Google Fonts 繁體中文、日文與英文排版效果。包含圓體、黑體、手寫風等多種 CSS 字型樣式代碼查詢。">
+    <meta name="keywords" content="Google Fonts, 網頁字體, 字體預覽, CSS font-family, 繁體中文圓體, 日文字體, 網頁設計工具, 線上字型測試">
+    <meta name="author" content="MOJImoji Font Tester">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Google Fonts 多語言風格預覽器">
+    <meta property="og:description" content="還在煩惱網頁要用什麼字體嗎？一鍵預覽繁中、日文、英文 Google Fonts 實際渲染效果。">
+    <meta property="og:url" content="https://yourwebsite.com/"> <link rel="canonical" href="https://yourwebsite.com/"> <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Hachi+Maru+Pop&family=Kaisei+Tokumin:wght@400;700&family=Kiwi+Maru:wght@300;500&family=Klee+One:wght@400;600&family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Potta+One&family=Rampart+One&family=RocknRoll+One&family=Shippori+Mincho+B1&family=Yomogi&family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Google Fonts 風格預覽器",
+      "description": "協助網頁設計師快速挑選適合的繁體中文與日文 Google Fonts 工具。",
+      "applicationCategory": "DesignApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TWD"
+      }
+    }
+    </script>
+
+    <style>
+        /* Base Fonts */
+        .font-noto-sans { font-family: 'Noto Sans TC', sans-serif; }
+        .font-noto-serif { font-family: 'Noto Serif TC', serif; }
+        
+        /* Rounded (Expanded) */
+        .font-rounded { font-family: 'M PLUS Rounded 1c', sans-serif; }
+        .font-rounded-zen { font-family: 'Zen Maru Gothic', sans-serif; }
+        .font-kosugi { font-family: 'Kosugi Maru', sans-serif; }
+        .font-pop-cute { font-family: 'Hachi Maru Pop', cursive; } 
+        .font-potta { font-family: 'Potta One', cursive; }
+        .font-yomogi { font-family: 'Yomogi', cursive; }
+        
+        /* Handwriting */
+        .font-hand-klee { font-family: 'Klee One', cursive; }
+        .font-hand-calligraphy { font-family: 'Zhi Mang Xing', cursive; }
+        .font-hand-marker { font-family: 'Yusei Magic', sans-serif; } 
+        .font-hand-hybrid { font-family: 'Kiwi Maru', serif; } 
+
+        /* Display / Retro / Special */
+        .font-retro-pixel { font-family: 'DotGothic16', sans-serif; }
+        .font-display-heavy { font-family: 'Dela Gothic One', cursive; }
+        .font-display-elegant { font-family: 'Shippori Mincho B1', serif; }
+        .font-serif-sharp { font-family: 'Kaisei Tokumin', serif; } 
+        .font-pop-strong { font-family: 'RocknRoll One', sans-serif; } 
+        .font-shadow-3d { font-family: 'Rampart One', cursive; } 
+
+        .preview-card {
+            transition: all 0.3s ease;
+        }
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom Scrollbar for better UX */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col transition-colors duration-300" id="bodyBg">
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm p-4">
+        <div class="max-w-7xl mx-auto flex flex-col gap-4">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800 whitespace-nowrap">字體風格預覽器</h1>
+                    <p class="text-xs text-gray-500 mt-1 hidden md:block">Google Fonts 繁中/日文/英文 跨語言測試</p>
+                </div>
+                
+                <div class="w-full md:w-auto flex-grow max-w-2xl">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <span class="text-gray-400"><i class="fas fa-pen"></i> T</span>
+                        </div>
+                        <input type="text" id="textInput" value="這是一段中文字 This is English 日本語のテキスト" 
+                               class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow focus:shadow-md" 
+                               placeholder="在此輸入想要預覽的文字...">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 md:gap-6 text-sm">
+                
+                <div class="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                    <span class="text-gray-600 font-medium whitespace-nowrap">大小</span>
+                    <input type="range" id="sizeSlider" min="20" max="90" value="42" class="w-24 md:w-32 accent-indigo-600 cursor-pointer">
+                </div>
+
+                <div class="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="boldToggle" class="sr-only peer">
+                        <div class="relative w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                        <span class="ms-2 text-gray-600 font-medium">粗體</span>
+                    </label>
+                </div>
+
+                <div class="flex items-center gap-4 bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-200">
+                    <div class="flex items-center gap-2">
+                        <label for="textColorPicker" class="text-gray-600 font-medium cursor-pointer">字色</label>
+                        <div class="relative w-6 h-6 overflow-hidden rounded-full border border-gray-300 shadow-sm hover:scale-110 transition-transform">
+                            <input type="color" id="textColorPicker" value="#374151" class="absolute -top-2 -left-2 w-10 h-10 cursor-pointer p-0 border-0">
+                        </div>
+                    </div>
+                    <div class="w-px h-4 bg-gray-300"></div>
+                    <div class="flex items-center gap-2">
+                        <label for="bgColorPicker" class="text-gray-600 font-medium cursor-pointer">背景</label>
+                        <div class="relative w-6 h-6 overflow-hidden rounded-full border border-gray-300 shadow-sm hover:scale-110 transition-transform">
+                            <input type="color" id="bgColorPicker" value="#ffffff" class="absolute -top-2 -left-2 w-10 h-10 cursor-pointer p-0 border-0">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="resetColors()" class="text-xs text-gray-400 hover:text-indigo-600 underline transition-colors">重置設定</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-8" id="mainContainer">
+        <div class="max-w-7xl mx-auto mb-8 text-gray-500 text-sm leading-relaxed">
+            <p>歡迎使用網頁字體預覽器。這裡彙整了適合網頁設計使用的 Google Fonts 開源字體，包含圓體（Rounded）、明體（Serif）、黑體（Sans-serif）與特殊手寫風格。輸入文字即可同時預覽中文、日文與英文的排版效果，複製 CSS 即可使用。</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6" id="cardGrid">
+
+            <div class="col-span-1 md:col-span-2 mt-2">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">圓潤與可愛 (Rounded & Cute)</h2>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'M PLUS Rounded 1c'</div>
+                <p class="preview-text font-rounded text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">現代圓體｜幾何感強，親切好讀 (支援粗體)</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Zen Maru Gothic'</div>
+                <p class="preview-text font-rounded-zen text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">自然圓體｜柔和，像路標或教科書 (支援粗體)</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Kosugi Maru'</div>
+                <p class="preview-text font-kosugi text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">標準圓體｜筆畫等寬，類似美工文書常見的標準圓體</p>
+            </div>
+            
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Potta One'</div>
+                <p class="preview-text font-potta text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">軟筆圓體｜起筆有圓潤的墨點感，俏皮且有份量</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Yomogi'</div>
+                <p class="preview-text font-yomogi text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">手寫細圓｜非常細緻的圓潤手寫字，像原子筆塗鴉</p>
+            </div>
+            
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Hachi Maru Pop'</div>
+                <p class="preview-text font-pop-cute text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">可愛流行｜像是麥克筆寫的圓圓字，適合輕鬆主題</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Kiwi Maru'</div>
+                <p class="preview-text font-hand-hybrid text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">圓體混合｜保有明體結構但轉角圓潤，復古又可愛</p>
+            </div>
+
+            <div class="col-span-1 md:col-span-2 mt-6">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">經典與手寫 (Classic & Hand)</h2>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Noto Sans TC'</div>
+                <p class="preview-text font-noto-sans text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">思源黑體｜理性、現代、泛用性最高</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Klee One'</div>
+                <p class="preview-text font-hand-klee text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">硬筆書寫｜整齊的教科書手寫感，非常百搭</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Yusei Magic'</div>
+                <p class="preview-text font-hand-marker text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">油性麥克筆｜像是用奇異筆寫在白板上的隨興感</p>
+            </div>
+
+            <div class="col-span-1 md:col-span-2 mt-6">
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 border-b border-gray-200 pb-2">強烈與特殊 (Display & Special)</h2>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Dela Gothic One'</div>
+                <p class="preview-text font-display-heavy text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">極粗黑體｜視覺衝擊力強，適合海報或大標題</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'RocknRoll One'</div>
+                <p class="preview-text font-pop-strong text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">搖滾體｜帶有運動感與遊戲感的幾何粗體</p>
+            </div>
+            
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Shippori Mincho B1'</div>
+                <p class="preview-text font-display-elegant text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">七寶明體｜筆觸帶圓潤墨跡感，氣質極佳</p>
+            </div>
+
+        </div>
+    </main>
+    
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-400 text-sm">
+            <p class="mb-2">※ 附註：部分字體為日系字庫（如小杉圓體、胖胖圓體），支援絕大多數繁體中文常用字，若遇缺字將自動退回系統黑體顯示。</p>
+            <p>&copy; 2025 Font Preview Tool. Powered by Google Fonts & Tailwind CSS.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const textInput = document.getElementById('textInput');
+        const sizeSlider = document.getElementById('sizeSlider');
+        const boldToggle = document.getElementById('boldToggle');
+        const textColorPicker = document.getElementById('textColorPicker');
+        const bgColorPicker = document.getElementById('bgColorPicker');
+        const previewTexts = document.querySelectorAll('.preview-text');
+        const previewCards = document.querySelectorAll('.preview-card');
+
+        // Default Multilingual Text
+        const DEFAULT_TEXT = '這是一段中文字 This is English 日本語のテキスト';
+
+        // Text Update
+        textInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            // If empty, show default placeholder text logic, otherwise show input
+            const displayVal = val.length > 0 ? val : DEFAULT_TEXT;
+            previewTexts.forEach(text => text.textContent = displayVal);
+        });
+
+        // Size Update
+        sizeSlider.addEventListener('input', (e) => {
+            const size = e.target.value + 'px';
+            previewTexts.forEach(text => text.style.fontSize = size);
+        });
+
+        // Weight Update
+        boldToggle.addEventListener('change', (e) => {
+            const weight = e.target.checked ? '700' : '400';
+            previewTexts.forEach(text => {
+                text.style.fontWeight = weight;
+            });
+        });
+
+        // Color Updates
+        function updateColors() {
+            const textColor = textColorPicker.value;
+            const bgColor = bgColorPicker.value;
+
+            previewCards.forEach(card => {
+                card.style.backgroundColor = bgColor;
+                card.style.borderColor = adjustColor(bgColor, -20);
+                
+                const textEl = card.querySelector('.preview-text');
+                const descEl = card.querySelector('p:last-child');
+                const labelEl = card.querySelector('.absolute');
+
+                textEl.style.color = textColor;
+                descEl.style.color = hexToRgba(textColor, 0.6);
+                
+                // Adjust label tag color based on bg
+                labelEl.style.backgroundColor = adjustColor(bgColor, -10);
+                labelEl.style.color = hexToRgba(textColor, 0.5);
+            });
+            
+            // Update body bg slightly to contrast
+            document.getElementById('bodyBg').style.backgroundColor = adjustColor(bgColor, -5);
+        }
+
+        textColorPicker.addEventListener('input', updateColors);
+        bgColorPicker.addEventListener('input', updateColors);
+
+        window.resetColors = function() {
+            textColorPicker.value = "#374151";
+            bgColorPicker.value = "#ffffff";
+            textInput.value = DEFAULT_TEXT; // Reset text too
+            previewTexts.forEach(text => text.textContent = DEFAULT_TEXT);
+            updateColors();
+        };
+
+        function adjustColor(color, amount) {
+            return '#' + color.replace(/^#/, '').replace(/../g, color => ('0'+Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)).substr(-2));
+        }
+
+        function hexToRgba(hex, alpha) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        // Initialize
+        updateColors();
+
+    </script>
+</body>
+</html>
