@@ -18,7 +18,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=Hachi+Maru+Pop&family=Kaisei+Tokumin:wght@400;700&family=Kiwi+Maru:wght@300;500&family=Klee+One:wght@400;600&family=Kosugi+Maru&family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Potta+One&family=Rampart+One&family=RocknRoll+One&family=Shippori+Mincho+B1&family=Yomogi&family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+Hei+HK:wght@400;700&family=Dela+Gothic+One&family=DotGothic16&family=Hachi+Maru+Pop&family=Kaisei+Tokumin:wght@400;700&family=Kiwi+Maru:wght@300;500&family=Klee+One:wght@400;600&family=Kosugi+Maru&family=LXGW+WenKai+TC:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;700&family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;700;900&family=Noto+Serif+Taiwan:wght@400;700&family=Noto+Serif+Traditional+Chinese:wght@400;700&family=Potta+One&family=Rampart+One&family=RocknRoll+One&family=Shippori+Mincho+B1&family=Yomogi&family=Yuji+Syuku&family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
     
     <script type="application/ld+json">
     {
@@ -40,6 +40,11 @@
         /* Base Fonts */
         .font-noto-sans { font-family: 'Noto Sans TC', sans-serif; }
         .font-noto-serif { font-family: 'Noto Serif TC', serif; }
+        .font-lxgw-wenkai { font-family: 'LXGW WenKai TC', serif; }
+        .font-chiron-hei { font-family: 'Chiron Hei HK', sans-serif; }
+        .font-noto-serif-traditional { font-family: 'Noto Serif Traditional Chinese', serif; }
+        .font-noto-serif-taiwan { font-family: 'Noto Serif Taiwan', serif; }
+        .font-yuji-syuku { font-family: 'Yuji Syuku', serif; }
         
         /* Rounded (Expanded) */
         .font-rounded { font-family: 'M PLUS Rounded 1c', sans-serif; }
@@ -141,6 +146,7 @@
                     </div>
                 </div>
 
+                <button onclick="testMissingGlyphs()" class="text-xs text-gray-600 hover:text-indigo-600 border border-gray-300 rounded px-3 py-1.5 transition-colors">缺字測試</button>
                 <button onclick="resetColors()" class="text-xs text-gray-400 hover:text-indigo-600 underline transition-colors">重置設定</button>
             </div>
         </div>
@@ -210,9 +216,39 @@
             </div>
 
             <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Noto Serif TC'</div>
+                <p class="preview-text font-noto-serif text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">思源宋體｜筆畫對比明顯，適合閱讀與標題</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
                 <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Klee One'</div>
                 <p class="preview-text font-hand-klee text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
                 <p class="text-xs text-gray-400 mt-2">硬筆書寫｜整齊的教科書手寫感，非常百搭</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'LXGW WenKai TC'</div>
+                <p class="preview-text font-lxgw-wenkai text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">霞鶩文楷｜帶有楷書筆意的明體風格</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Chiron Hei HK'</div>
+                <p class="preview-text font-chiron-hei text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">昭源黑體｜香港繁體中文黑體</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Noto Serif Traditional Chinese'</div>
+                <p class="preview-text font-noto-serif-traditional text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">Noto Serif Traditional Chinese｜繁體中文明體</p>
+            </div>
+
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Noto Serif Taiwan'</div>
+                <p class="preview-text font-noto-serif-taiwan text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">Noto Serif Taiwan｜台灣繁體中文明體</p>
             </div>
 
             <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
@@ -243,6 +279,12 @@
                 <p class="text-xs text-gray-400 mt-2">七寶明體｜筆觸帶圓潤墨跡感，氣質極佳</p>
             </div>
 
+            <div class="preview-card bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative group">
+                <div class="absolute top-3 right-3 text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded font-mono">font-family: 'Yuji Syuku'</div>
+                <p class="preview-text font-yuji-syuku text-[42px] mb-2 transition-all duration-200">這是一段中文字 This is English 日本語のテキスト</p>
+                <p class="text-xs text-gray-400 mt-2">Yuji Syuku｜具有筆刷感的日文字體</p>
+            </div>
+
         </div>
     </main>
     
@@ -264,6 +306,7 @@
 
         // Default Multilingual Text
         const DEFAULT_TEXT = '這是一段中文字 This is English 日本語のテキスト';
+        const MISSING_GLYPH_TEXT = '你嗎們這個內戶牠';
 
         // Text Update
         textInput.addEventListener('input', (e) => {
@@ -272,6 +315,11 @@
             const displayVal = val.length > 0 ? val : DEFAULT_TEXT;
             previewTexts.forEach(text => text.textContent = displayVal);
         });
+
+        window.testMissingGlyphs = function() {
+            textInput.value = MISSING_GLYPH_TEXT;
+            textInput.dispatchEvent(new Event('input'));
+        };
 
         // Size Update
         sizeSlider.addEventListener('input', (e) => {
